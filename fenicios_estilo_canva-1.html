@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fenicios | Exposición digital</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+*{box-sizing:border-box}
+:root{
+ --pink:#f5b8bd;--pink2:#f9dfe0;--pink3:#ef8f98;--rose:#d86d78;
+ --ink:#302c31;--cream:#fffdfa;--line:#8f7c80;--blue:#bfdce1;
+}
+html{scroll-behavior:smooth}
+body{
+ margin:0;color:var(--ink);font-family:"DM Sans",Arial,sans-serif;
+ background-color:#fffdfb;
+ background-image:radial-gradient(#c8c1c2 1.05px,transparent 1.05px);
+ background-size:24px 24px;
+}
+nav{
+ position:sticky;top:0;z-index:10;background:#fffdfbed;backdrop-filter:blur(8px);
+ border-bottom:1px solid #00000012;padding:10px 14px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap
+}
+nav a{font-size:13px;color:var(--ink);text-decoration:none;padding:8px 12px;border-radius:20px}
+nav a:hover{background:var(--pink2)}
+main{max-width:1100px;margin:auto;padding:28px 16px 70px}
+.slide{
+ background:rgba(255,253,250,.92);border:1px solid #00000012;border-radius:30px;
+ padding:34px;min-height:600px;margin:28px 0;box-shadow:0 12px 35px #0000000b;overflow:hidden;position:relative
+}
+.slide:after{content:"";position:absolute;inset:12px;border:1px solid #00000009;border-radius:23px;pointer-events:none}
+.kicker{text-transform:uppercase;letter-spacing:3px;font-size:11px;font-weight:700;color:#6c6267}
+.title{
+ font-family:"Playfair Display",serif;font-size:clamp(42px,7vw,82px);line-height:.98;margin:10px 0;color:#242025
+}
+.script{font-family:Caveat,cursive;font-size:clamp(38px,6vw,65px);color:var(--rose);font-weight:600}
+.water{display:inline-block;padding:13px 28px 16px;position:relative;z-index:1}
+.water:before{
+ content:"";position:absolute;z-index:-1;inset:0 -15px -4px;
+ background:#f2a5aa;opacity:.65;border-radius:45% 55% 48% 52%/55% 42% 58% 45%;
+ transform:rotate(-2deg);filter:blur(.2px)
+}
+.cover{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center}
+.cover p{font-size:17px;line-height:1.8;max-width:620px}
+.illustration{
+ min-height:390px;border-radius:25px;background:linear-gradient(145deg,#f8e3dc,#d9e8e8);
+ display:grid;place-items:center;position:relative;overflow:hidden
+}
+.sun{width:250px;height:250px;border-radius:50%;background:#efaaa7;opacity:.72;position:absolute;right:-55px;top:-45px}
+.ship{font-size:115px;position:relative;filter:drop-shadow(0 8px 3px #00000018)}
+.sea{position:absolute;bottom:50px;font-size:42px;letter-spacing:12px}
+.grid2{display:grid;grid-template-columns:1.4fr .8fr;gap:24px}
+.box{
+ background:#fff;border:2px solid #a98f93;border-radius:7px;padding:24px;position:relative;
+ box-shadow:5px 5px 0 #f2d1d2
+}
+.box:before{content:"";position:absolute;left:10px;right:10px;top:9px;height:3px;border-top:1px dashed #c8b7ba}
+.box h3,.sectionhead{
+ font-family:Caveat,cursive;font-size:35px;line-height:1;margin:0 0 12px;color:#3c3438
+}
+.box p,.box li{line-height:1.65;font-size:14px}
+.note{background:#f6c9ca;border:0;box-shadow:none;transform:rotate(-1deg)}
+.note:nth-child(even){transform:rotate(1deg)}
+.small-title{font-family:Caveat,cursive;font-size:27px;color:var(--rose);font-weight:700}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{
+ background:#fff;border:1px solid #ddd1d2;border-radius:13px;padding:20px;text-align:center;
+ box-shadow:0 5px 15px #00000009
+}
+.card .ico{font-size:42px}
+.card h3{font-family:"Playfair Display",serif;font-size:22px;margin:9px 0}
+.card p{font-size:13px;line-height:1.55}
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:25px}
+.time{border-top:5px solid var(--pink3);padding:15px;background:#fff}
+.time b{font-family:Caveat,cursive;font-size:29px}
+.time p{font-size:13px;line-height:1.55}
+.alphabet{display:grid;grid-template-columns:repeat(8,1fr);gap:10px;margin-top:18px}
+.letter{background:#f8e5e3;border-radius:10px;padding:12px;text-align:center;border-bottom:3px solid #d98b91}
+.letter b{font-family:"Playfair Display",serif;font-size:27px}
+.letter small{display:block;font-size:10px;margin-top:3px}
+.quote{
+ margin:0;background:#f5dfe0;padding:25px 30px;border-radius:5px;border-left:7px solid var(--rose);
+ font-family:Caveat,cursive;font-size:34px;line-height:1.1
+}
+.footer{text-align:center;font-family:Caveat,cursive;font-size:25px;color:#75666b;margin-top:30px}
+@media(max-width:760px){
+ .cover,.grid2{grid-template-columns:1fr}.cards{grid-template-columns:1fr 1fr}.timeline{grid-template-columns:1fr 1fr}.alphabet{grid-template-columns:repeat(4,1fr)}
+ .slide{padding:23px;min-height:0}.illustration{min-height:270px}
+}
+@media(max-width:480px){.cards{grid-template-columns:1fr}.timeline{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav>
+<a href="#inicio">Inicio</a><a href="#origen">Origen</a><a href="#ciudades">Ciudades</a>
+<a href="#comercio">Comercio</a><a href="#alfabeto">Alfabeto</a><a href="#legado">Legado</a>
+</nav>
+<main>
+
+<section class="slide cover" id="inicio">
+ <div>
+  <div class="kicker">Historia antigua · exposición digital</div>
+  <h1><span class="water">FENICIOS</span></h1>
+  <div class="script">los grandes viajeros del Mediterráneo</div>
+  <p>Un recorrido por sus orígenes, ciudades, navegación, comercio, cultura y una de sus aportaciones más importantes: <b>el alfabeto fenicio</b>.</p>
+  <div class="small-title">✦ Una civilización entre el mar y las montañas ✦</div>
+ </div>
+ <div class="illustration"><div class="sun"></div><div class="ship">⛵</div><div class="sea">〰〰〰</div></div>
+</section>
+
+<section class="slide" id="origen">
+ <div class="sectionhead"><span class="water">¿De dónde venían?</span></div>
+ <div class="grid2">
+  <div class="box">
+   <h3>El origen de Fenicia</h3>
+   <p>Los fenicios fueron un pueblo de la antigüedad que habitó la costa oriental del mar Mediterráneo, principalmente en una región que corresponde al actual Líbano y zonas cercanas.</p>
+   <p>Su territorio estaba entre el mar y las montañas del Líbano. Como la tierra disponible para la agricultura era limitada, el mar se convirtió en una vía fundamental para viajar, intercambiar productos y establecer contactos con otros pueblos.</p>
+   <p>Fenicia no formó un único imperio: estuvo organizada en varias <b>ciudades-estado</b> independientes.</p>
+  </div>
+  <div class="box note">
+   <h3>¿Sabías que...?</h3>
+   <p>El nombre “fenicio” fue utilizado por los griegos. El pueblo fenicio se identificaba más por sus ciudades, como Tiro, Sidón y Biblos.</p>
+   <p>Su posición geográfica convirtió a la costa en un punto estratégico para las rutas del Mediterráneo.</p>
+  </div>
+ </div>
+ <div class="cards" style="margin-top:22px">
+  <div class="card"><div class="ico">🏔️</div><h3>Montañas</h3><p>El relieve del territorio influyó en su forma de vida.</p></div>
+  <div class="card"><div class="ico">🌊</div><h3>Mediterráneo</h3><p>El mar fue su principal vía de comunicación.</p></div>
+  <div class="card"><div class="ico">🏙️</div><h3>Ciudades-estado</h3><p>Cada ciudad tenía sus propios gobernantes e intereses.</p></div>
+ </div>
+</section>
+
+<section class="slide" id="ciudades">
+ <div class="sectionhead"><span class="water">Sus ciudades principales</span></div>
+ <p>Las ciudades fenicias fueron importantes centros portuarios. Aunque compartían lengua y muchas tradiciones, cada una desarrolló su propia identidad política y comercial.</p>
+ <div class="cards">
+  <div class="card"><div class="ico">⚓</div><h3>Tiro</h3><p>Destacó por su actividad marítima y comercial. Fue uno de los centros más influyentes de Fenicia.</p></div>
+  <div class="card"><div class="ico">🏺</div><h3>Sidón</h3><p>Fue conocida por sus talleres, comercio y producción de objetos de gran calidad.</p></div>
+  <div class="card"><div class="ico">📜</div><h3>Biblos</h3><p>Fue un antiguo puerto comercial relacionado con la madera y otros productos. Su nombre quedó vinculado posteriormente con la palabra “libro”.</p></div>
+ </div>
+ <div class="box" style="margin-top:22px">
+  <h3>Ciudades conectadas por el mar</h3>
+  <p>Los puertos permitían mover mercancías, personas e ideas. Desde ellos salían embarcaciones hacia muchas regiones del Mediterráneo.</p>
+ </div>
+</section>
+
+<section class="slide" id="comercio">
+ <div class="sectionhead"><span class="water">Navegación y comercio</span></div>
+ <div class="grid2">
+  <div class="box">
+   <h3>Expertos navegantes</h3>
+   <p>Los fenicios desarrollaron una gran experiencia en la navegación mediterránea. Utilizaron rutas costeras y conocimientos de vientos, corrientes y orientación para realizar viajes largos.</p>
+   <p>Sus barcos conectaron puertos y permitieron intercambiar productos entre comunidades muy alejadas.</p>
+  </div>
+  <div class="box note">
+   <h3>Productos famosos</h3>
+   <ul><li>Madera de cedro</li><li>Tejidos teñidos</li><li>Objetos de vidrio</li><li>Metales y artesanías</li><li>Productos de lujo</li></ul>
+  </div>
+ </div>
+ <div class="timeline">
+  <div class="time"><b>Viajar</b><p>Recorrían rutas marítimas para llegar a diferentes puertos.</p></div>
+  <div class="time"><b>Intercambiar</b><p>Vendían productos y conseguían materias primas.</p></div>
+  <div class="time"><b>Establecerse</b><p>Fundaron asentamientos y colonias en distintas zonas.</p></div>
+  <div class="time"><b>Conectar</b><p>Facilitaron el contacto cultural entre pueblos.</p></div>
+ </div>
+</section>
+
+<section class="slide" id="alfabeto">
+ <div class="sectionhead"><span class="water">El alfabeto fenicio</span></div>
+ <div class="grid2">
+  <div class="box">
+   <h3>Una gran aportación</h3>
+   <p>El alfabeto fenicio fue un sistema de escritura formado principalmente por signos que representaban sonidos consonánticos. Su estructura relativamente sencilla facilitó su uso y difusión.</p>
+   <p>Tuvo una influencia importante en alfabetos posteriores. El alfabeto griego adoptó y modificó signos fenicios y, a través de distintas transformaciones, su tradición influyó en alfabetos usados actualmente.</p>
+  </div>
+  <div class="box note">
+   <h3>¿Por qué fue importante?</h3>
+   <p>La escritura podía ser utilizada con mayor facilidad para registrar nombres, mercancías, acuerdos y otras informaciones relacionadas con la vida comercial y cotidiana.</p>
+  </div>
+ </div>
+ <div class="alphabet">
+  <div class="letter"><b>𐤀</b><small>aleph</small></div><div class="letter"><b>𐤁</b><small>beth</small></div>
+  <div class="letter"><b>𐤂</b><small>gimel</small></div><div class="letter"><b>𐤃</b><small>daleth</small></div>
+  <div class="letter"><b>𐤄</b><small>he</small></div><div class="letter"><b>𐤅</b><small>waw</small></div>
+  <div class="letter"><b>𐤆</b><small>zayin</small></div><div class="letter"><b>𐤇</b><small>heth</small></div>
+ </div>
+</section>
+
+<section class="slide">
+ <div class="sectionhead"><span class="water">Cultura y vida cotidiana</span></div>
+ <div class="cards">
+  <div class="card"><div class="ico">🟣</div><h3>El púrpura</h3><p>Producían un famoso tinte púrpura a partir de determinados moluscos marinos. Era laborioso de obtener y se convirtió en un producto valioso.</p></div>
+  <div class="card"><div class="ico">🎨</div><h3>Artesanía</h3><p>Trabajaron el vidrio, metal, madera, marfil y tejidos. Sus objetos circularon ampliamente por el Mediterráneo.</p></div>
+  <div class="card"><div class="ico">⛩️</div><h3>Religión</h3><p>Las ciudades tenían tradiciones religiosas propias y veneraban diferentes divinidades.</p></div>
+  <div class="card"><div class="ico">🏠</div><h3>Vida urbana</h3><p>Los puertos, talleres y mercados eran espacios esenciales para la vida económica de las ciudades.</p></div>
+  <div class="card"><div class="ico">🌍</div><h3>Intercambio</h3><p>Los viajes favorecieron la circulación de productos, técnicas, costumbres e ideas.</p></div>
+  <div class="card"><div class="ico">🪵</div><h3>Cedro</h3><p>La madera de los bosques del Líbano fue uno de los recursos importantes de la región.</p></div>
+ </div>
+</section>
+
+<section class="slide" id="legado">
+ <div class="sectionhead"><span class="water">Expansión y legado</span></div>
+ <div class="box">
+  <h3>Por todo el Mediterráneo</h3>
+  <p>La actividad marítima fenicia llevó a la creación de numerosos asentamientos y colonias. Uno de los más conocidos fue <b>Cartago</b>, en el norte de África, que posteriormente se convirtió en una gran potencia mediterránea.</p>
+ </div>
+ <div style="margin:25px 0">
+  <p class="quote">“Su legado no quedó solamente en sus ciudades: también viajó por el mar a través de sus rutas, sus productos y sus letras.”</p>
+ </div>
+ <div class="grid2">
+  <div class="box">
+   <h3>¿Qué nos dejaron?</h3>
+   <ul>
+    <li>Una importante tradición alfabética.</li>
+    <li>Una gran experiencia marítima y comercial.</li>
+    <li>Objetos y técnicas artesanales.</li>
+    <li>Huella cultural en diferentes regiones del Mediterráneo.</li>
+   </ul>
+  </div>
+  <div class="box note">
+   <h3>Conclusión</h3>
+   <p>Los fenicios fueron una civilización formada por ciudades costeras que aprovecharon su ubicación para convertirse en grandes navegantes y comerciantes. Su influencia fue mucho mayor que el tamaño de su territorio.</p>
+  </div>
+ </div>
+</section>
+
+<div class="footer">✦ Fin de la exposición · Los Fenicios ✦</div>
+</main>
+</body>
+</html>
